@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-# Ensure vite binary has execution permissions
+# Fix vite permissions
 chmod +x node_modules/.bin/vite
 
-# Build the project
+# Build
 npx vite build
