@@ -1,13 +1,3 @@
 #!/bin/bash
-set -e  # stop on any error
-
-echo "Cleaning previous build..."
-rm -rf dist
-
-echo "Setting executable permissions for all node binaries..."
-chmod -R +x node_modules/.bin
-
-echo "Running Vite build..."
+chmod +x node_modules/.bin/vite
 npx vite build
-
-echo "Build completed successfully!"
