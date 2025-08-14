@@ -4,11 +4,11 @@
   "version": "0.0.2",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "./vercel-build.sh",
-    "preview": "vite preview",
-    "clean": "rm -rf dist"
-  },
+  "dev": "vite",
+  "build": "./vercel-build.sh",
+  "preview": "vite preview"
+},
+
   "dependencies": {
     "react": "^18.0.38",
     "react-dom": "^18.0.11",
