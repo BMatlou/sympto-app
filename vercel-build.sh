@@ -1,8 +1,5 @@
 #!/bin/bash
-set -e
+set -e  # stop on first error
 
-# Fix vite permissions
 chmod +x node_modules/.bin/vite
-
-# Build
 npx vite build
