@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "./vercel-build.sh",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "react": "^18.0.38",
