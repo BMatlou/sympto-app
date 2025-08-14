@@ -1,19 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { FiHeart as Heart, FiTrendingUp as TrendingUp, FiClock as Clock, FiShield as Shield, FiUsers as Users, FiSmartphone as Smartphone } from "react-icons/fi";
 
-// Example icon imports from react-icons (you can replace with your actual icons)
-import { FiHeart as Heart } from "react-icons/fi";
-import { FiTrendingUp as TrendingUp } from "react-icons/fi";
-import { FiClock as Clock } from "react-icons/fi";
-import { FiShield as Shield } from "react-icons/fi";
-import { FiUsers as Users } from "react-icons/fi";
-import { FiSmartphone as Smartphone } from "react-icons/fi";
-
-// Dummy Button and Card components for example — replace with your actual UI components
+// Reusable Button and Card components
 const Button = ({ children, className, variant, ...props }: any) => (
   <button
     {...props}
-    className={`${variant === "outline" ? "bg-transparent" : ""} ${className}`}
+    className={`${variant === "outline" ? "bg-transparent border-2 border-[#2ecac8] text-[#2ecac8] hover:bg-[#2ecac8] hover:text-white" : "bg-gradient-to-r from-[#2ecac8] to-[#338886] text-white"} ${className}`}
   >
     {children}
   </button>
@@ -39,48 +32,20 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   const features = [
-    {
-      icon: Heart,
-      title: "Track Symptoms",
-      description:
-        "Log and monitor your symptoms with ease, helping you identify patterns and triggers.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Health Insights",
-      description:
-        "Get personalized insights and recommendations based on your health data.",
-    },
-    {
-      icon: Clock,
-      title: "Medication Reminders",
-      description:
-        "Never miss a dose with smart medication tracking and reminders.",
-    },
-    {
-      icon: Shield,
-      title: "Secure & Private",
-      description:
-        "Your health data is encrypted and protected with enterprise-grade security.",
-    },
-    {
-      icon: Users,
-      title: "Share with Doctors",
-      description:
-        "Generate comprehensive reports to share with your healthcare providers.",
-    },
-    {
-      icon: Smartphone,
-      title: "Always Available",
-      description:
-        "Access your health data anytime, anywhere with our mobile-friendly platform.",
-    },
+    { icon: Heart, title: "Track Symptoms", description: "Log and monitor your symptoms with ease, helping you identify patterns and triggers." },
+    { icon: TrendingUp, title: "Health Insights", description: "Get personalized insights and recommendations based on your health data." },
+    { icon: Clock, title: "Medication Reminders", description: "Never miss a dose with smart medication tracking and reminders." },
+    { icon: Shield, title: "Secure & Private", description: "Your health data is encrypted and protected with enterprise-grade security." },
+    { icon: Users, title: "Share with Doctors", description: "Generate comprehensive reports to share with your healthcare providers." },
+    { icon: Smartphone, title: "Always Available", description: "Access your health data anytime, anywhere with our mobile-friendly platform." },
   ];
+
+  const symptoMainUrl = "https://sympto-main.vercel.app/welcome";
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#2ecac8]/10 via-white to-[#338886]/5">
-      {/* Header */}
       <div className="container mx-auto px-4 py-8">
+        {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <div className="bg-gradient-to-r from-[#2ecac8] to-[#338886] p-4 rounded-2xl shadow-lg">
@@ -100,22 +65,19 @@ const Welcome = () => {
           </p>
 
           <p className="text-lg text-gray-500 mb-12 max-w-3xl mx-auto">
-            Take control of your health journey with intelligent symptom
-            tracking, personalized insights, and seamless healthcare provider
-            collaboration.
+            Take control of your health journey with intelligent symptom tracking, personalized insights, and seamless healthcare provider collaboration.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={() => window.open("https://sympto-main.vercel.app/welcome", "_blank")}
-              className="bg-gradient-to-r from-[#2ecac8] to-[#338886] hover:from-[#338886] hover:to-[#2ecac8] text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              Get Started Today
-            </Button>
+            <a href={symptoMainUrl} target="_blank" rel="noopener noreferrer">
+              <Button className="px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                Get Started Today
+              </Button>
+            </a>
             <Button
               onClick={() => navigate("/about")}
               variant="outline"
-              className="border-2 border-[#2ecac8] text-[#2ecac8] hover:bg-[#2ecac8] hover:text-white px-8 py-4 text-lg rounded-full transition-all duration-300"
+              className="px-8 py-4 text-lg rounded-full transition-all duration-300"
             >
               Learn More
             </Button>
@@ -135,9 +97,7 @@ const Welcome = () => {
                   <div className="mx-auto bg-gradient-to-r from-[#2ecac8]/20 to-[#338886]/20 p-4 rounded-full w-fit mb-4">
                     <Icon className="w-8 h-8 text-[#2ecac8]" />
                   </div>
-                  <CardTitle className="text-xl text-gray-800">
-                    {feature.title}
-                  </CardTitle>
+                  <CardTitle className="text-xl text-gray-800">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 text-center">{feature.description}</p>
@@ -153,16 +113,13 @@ const Welcome = () => {
             Ready to Transform Your Health Management?
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Join thousands of users who have taken control of their health
-            journey with Sympto. Start tracking, get insights, and improve your
-            health outcomes today.
+            Join thousands of users who have taken control of their health journey with Sympto. Start tracking, get insights, and improve your health outcomes today.
           </p>
-          <Button
-            onClick={() => window.open("https://sympto-main.vercel.app/welcome", "_blank")}
-            className="bg-white text-[#2ecac8] hover:bg-gray-100 px-10 py-4 text-lg rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-          >
-            Start Your Health Journey
-          </Button>
+          <a href={symptoMainUrl} target="_blank" rel="noopener noreferrer">
+            <Button className="bg-white text-[#2ecac8] hover:bg-gray-100 px-10 py-4 text-lg rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              Start Your Health Journey
+            </Button>
+          </a>
         </div>
 
         {/* Footer */}
@@ -177,4 +134,3 @@ const Welcome = () => {
 };
 
 export default Welcome;
-
