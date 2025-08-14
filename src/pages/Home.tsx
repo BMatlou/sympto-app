@@ -40,7 +40,7 @@ const Welcome = () => {
     { icon: Smartphone, title: "Always Available", description: "Access your health data anytime, anywhere with our mobile-friendly platform." },
   ];
 
-  const symptoMainUrl = "https://sympto-main.vercel.app/welcome";
+  const symptoMainUrl = "https://sympto-main.vercel.app";
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#2ecac8]/10 via-white to-[#338886]/5">
